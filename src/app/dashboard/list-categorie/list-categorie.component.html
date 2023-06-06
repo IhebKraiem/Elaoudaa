@@ -1,0 +1,76 @@
+<body>
+
+    <app-menu></app-menu>
+ 
+     <main id="main" class="main">
+ 
+         <div class="pagetitle">
+             <h1>Categories</h1>
+             <nav>
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                     <li class="breadcrumb-item "> Les categories</li>
+                     <li class="breadcrumb-item active"> List des categories</li>
+                 </ol>
+             </nav>
+         </div>
+         <!-- End Page Title -->
+ 
+         <section class="section dashboard">
+             <div class="row">
+ 
+                 <!-- Left side columns -->
+                 <div class="col-lg-12">
+                     <div class="row">
+                         <!-- Prodactes -->
+                         <div class="col-12">
+                             <div class="card top-selling overflow-auto">
+                                 <div class="card-body pb-0">
+ 
+                                     <h5 class="card-title">List des catégories <button class="btn btn-success float-end"
+                                        routerLink="/add-categorie">Ajouter Catégorie</button></h5>
+                                     <input class="form-control" type="text" name="name" [(ngModel)]="name"  (ngModelChange)="Search()" 
+                                     placeholder="Entrez le nom pour rechercher">
+                                     <table *ngIf="listCategorie.length > 0"  class="table table-borderless mt-5">
+                                         <thead>
+                                             <tr>
+                                                
+                                                 <th scope="col">Name</th>
+                                                 
+                                                 <th scope="col">Action</th>
+                                                 
+                                             </tr>
+                                         </thead>
+                                         
+                                         <tbody>
+                                             <tr *ngFor ="let categorie of listCategorie | paginate:{ itemsPerPage:6, currentPage: p}">
+                                                 
+                                          
+                                                 <td class="fw-bold" >{{categorie.name}}</td>
+                                                
+                                                 <td>
+                                                    <i [routerLink]="['/updatecategorie',categorie._id]" class="fa fa-edit text-success"></i>
+                                                     <i (click)="deleteCategorie(categorie._id)"  class="fa fa-trash text-danger"></i>
+                                                 </td>
+                                             </tr>
+                                         </tbody>
+                                     </table>
+                                     <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+                                     <h5 style="text-align: start; margin-top: 10px " *ngIf="listCategorie.length == 0">there are no contacts to display</h5>
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- End Prodactes -->
+                     </div>
+                 </div>
+                 <!-- End Left side columns -->
+             </div>
+         </section>
+     </main>
+     <!-- End #main -->
+ 
+ 
+ 
+ 
+ </body>
+ 

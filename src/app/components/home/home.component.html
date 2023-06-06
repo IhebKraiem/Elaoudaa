@@ -1,0 +1,39 @@
+<div>
+   <app-navbar></app-navbar>
+</div>
+<section id="summary-slider">
+   <div class="general">
+      <div class="content-result content-result-news col-md-12 " style=" height: 500px;">
+        
+      </div>
+     
+   </div>
+</section>
+<section id="news" class="container secondary-page">
+   <div class="general general-results players">
+      <div class="top-score-title right-score col-md-12">
+         <h3> Les <span>Actualités</span><span class="point-little">.</span></h3>
+         <section class="news_slide-over-color">
+            <div class="news_slide-over"></div>
+            
+               <div class="col-xs-12 col-md-6 top-slide-info" *ngFor="let news of news">
+                  
+                     <div class="col-md-4 slide-cont-img"><img style="width: 700px; height:200px"
+                           [src]="'http://localhost:3000/'+news.image" alt="" /></div>
+                     <div class="event_date dd-date">{{news.date}}</div>
+                     <h4>{{news.title}}</h4>
+                     <p>{{news.newsToday}}.</p>
+                 
+                  
+
+               
+            </div>
+         </section>
+        
+      </div>
+      <!--Close Top Match-->
+   </div>
+  
+</section>
+
+<app-footer></app-footer>

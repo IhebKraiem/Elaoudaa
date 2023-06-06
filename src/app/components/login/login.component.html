@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<body>
+	
+	<section class="drawer">
+		<div class="col-md-12 size-img back-img">
+			<div class="effect-cover">
+				<h3 class="txt-advert animated">Bienvenue Dans Notre Club ! </h3>
+			</div>
+		</div>
+		<!-- Shop Login -->
+		<div class="container secondary-page">
+			<section id="login" class="login section">
+				
+				<div class="container">
+					<div class="top-score-title right-score col-md-12">
+						<h3>Vous avez déja <span>un compte</span><span class="point-int"> !</span></h3>
+						<div class="inner">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="login-left">
+
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="login-form">
+										<h2>Connecter ici</h2>
+										<p>Vous n'avez pas un compte ? <a href="/inscrit">S'inscrire ici</a></p>
+										<!-- Form -->
+										<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+											<div class="row">
+
+												<div class="col-lg-12">
+													<div class="form-group">
+														<input type="email" name="email" placeholder="Email"
+															class="form-control" formControlName="email"
+															[ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+														<div *ngIf="submitted && f['email'].errors"
+															class="invalid-feedback">
+															<div *ngIf="f['email'].errors['required']">email is required
+															</div>
+															<div *ngIf="f['email'].errors['pattern']">email not valid.
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-lg-12">
+													<div class="form-group">
+														<input type="password" name="password" class="form-control"
+															placeholder="Password" formControlName="password">
+														<div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+															<div *ngIf="f['password'].errors['required']">Password is required</div>
+															<div *ngIf="f['password'].errors['pattern']">Password not valid.</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-12">
+													<div class="form-group">
+                                                        <input id="bt1" type="submit" class="form-control" value="Login"/>
+                                                    </div>
+													
+												</div>
+												<p>Oublié ton mot de passe ? <a href="/request-reset-password">Clique Ici</a></p>
+											</div>
+										</form>
+										<!--/ End Form -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</div>
+		<!--/ End Login -->
+		
+		<!--/ End Login -->
+	</section>
+
+
+</body>
+<app-footer></app-footer>

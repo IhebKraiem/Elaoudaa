@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+
+<body>
+  <section class="drawer">
+ 
+    <div class="col-md-12 size-img back-img-shop2">
+      <div class="effect-cover">
+          <h3 class="txt-advert animated">les meilleurs Produit Pour Vous</h3>
+          <p class="txt-advert-sub">Stylos - Cahies - Trosses ...</p>
+      </div>
+  </div>
+
+    <section id="shop" class="container secondary-page">
+      <div class="general general-results" >
+        <div class="col-md-3 right-column">
+          <div class="top-score-title prod-cat col-md-12">
+            <h3>Les Catégories</h3>
+            <div class="products-content" *ngFor="let category of categorys">
+              <a href="shop/{{category._id}}" class="news-title-right">{{category.name}}</a>
+            </div>
+
+          </div>
+        </div>
+        <div class="top-score-title right-score col-md-9" >
+          <h3>Trouver Votre<span> Produit</span><span class="point-little">.</span></h3>
+          <div *ngIf="products">
+          <div  *ngFor="let product of products | paginate:{ itemsPerPage:6, currentPage: p}">
+             
+            <div class="col-md-4 shops shops-top" >
+              <div class="col-md-12 shop-prod" >
+                
+                <img style="width: 200px;
+                     height: 200px; " [src]="'http://localhost:3000/'+product.image" alt="" />
+                <div class="title-prod"><a href="detail-Produit/{{product._id}}"><span>{{product.name}}</span></a></div>
+                <div class="prod-buy"><a (click)="_addItemToCart(product._id, 1)"  class="prod-cart"><i class="fa fa-shopping-cart"></i>Ajouter</a>
+                  <p class="prod-sh-price">{{product.price }} dt</p>
+                </div>
+              </div>
+              
+
+            </div>
+            
+          </div>
+        </div>
+
+          <div *ngIf="!products">
+          <div  *ngFor="let product of listProduct1 | paginate:{ itemsPerPage:6, currentPage: p}">
+             
+            <div class="col-md-4 shops shops-top" >
+              <div class="col-md-12 shop-prod" >
+                
+                <img style="width: 200px;
+                     height: 200px; " [src]="'http://localhost:3000/'+product.image" alt="" />
+                <div class="title-prod"><a href="detail-Produit/{{product._id}}"><span>{{product.name}}</span></a></div>
+                <div class="prod-buy"><a (click)="_addItemToCart(product._id, 1)"  class="prod-cart"><i class="fa fa-shopping-cart"></i>Ajouter</a>
+                  <p class="prod-sh-price">{{product.price }} dt</p>
+                </div>
+              </div>
+              
+
+            </div>
+            
+          </div>
+        </div>
+
+          <div>
+
+          </div>
+          
+        </div>
+        <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+        <!--Close Top Match-->
+      </div>
+
+    </section>
+    
+    
+  </section>
+  
+
+</body>
+<app-footer></app-footer>

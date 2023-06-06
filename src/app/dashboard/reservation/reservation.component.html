@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+
+
+<main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Reservations</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active"> Liste des commandes</li>
+                </ol>
+            </nav>
+        </div>
+    <section class="section dashboard">
+        <div class="row">
+    
+            <!-- Left side columns -->
+            <div class="col-lg-12">
+                <div class="row">
+                    <!-- Prodactes -->
+                    <div class="col-12">
+                        <div class="card top-selling overflow-auto">
+                            <div class="card-body pb-0">
+    
+                                <h5 class="card-title">Liste des commandes </h5>
+                                <table *ngIf="listreservations.length > 0"  class="table table-borderless mt-5">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th scope="col">Nom Client</th>
+                                            <th scope="col">Telephone</th>
+                                            <th scope="col">Nom Produit</th>
+                                            <th scope="col">Quantité</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+    
+                                    <tbody>
+                                        <tr *ngFor ="let reservation of listreservations"> 
+                                              
+                                            <td>{{reservation.client.name}} {{reservation.client.lastname}}</td>
+                                            <td>{{reservation.qcm}}</td>
+                                            <td>{{reservation.numtel}}</td>
+                                            <td>{{reservation.desc}}</td>
+                                            <td>
+                                                <i (click)="deleteReservation(reservation._id)" class="fa fa-trash text-danger"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h5 style="text-align: start; margin-top: 10px " *ngIf="listreservations.length == 0">Pas de commande</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Prodactes -->
+                </div>
+            </div>
+            <!-- End Left side columns -->
+        </div>
+    </section>
+    </main>
+Écrire à Amèni Hàouas

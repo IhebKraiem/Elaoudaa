@@ -1,0 +1,67 @@
+<app-menu></app-menu>
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Actualités</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Actualités</li>
+                <li class="breadcrumb-item active">list des Actualités</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section dashboard">
+        <div class="row">
+    
+            <!-- Left side columns -->
+            <div class="col-lg-12">
+                <div class="row">
+                    <!-- news -->
+                    <div class="col-12">
+                        <div class="card top-selling overflow-auto">
+                            <div class="card-body pb-0">
+    
+                  <h5 class="card-title">Actualités <button class="btn btn-success float-end" routerLink="/addnews">Ajouter Actualité</button></h5>
+                  <nav class="navbar">
+                    <input class="form-control" type="text" name="title" [(ngModel)]="title"  (ngModelChange)="Search()" 
+                     placeholder="Entrez le titre pour rechercher">
+                </nav>
+                                <table  class="table table-borderless mt-5" *ngIf="listnews.length > 0" >
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Date</th>
+                                          <th scope="col">Titre</th>
+                                          <th scope="col">Actualités d'aujourd'hui</th>
+                                          <th scope="col">Image</th>
+                                          <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+    
+                                    <tbody>                                
+                                    <tr *ngFor ="let news of listnews | paginate:{ itemsPerPage:6, currentPage: p}">
+                                              <td>{{news.date}}</td>
+                                              <td>{{news.title}}</td>
+                                              <td>{{news.newsToday}}</td>
+                                              <td scope="row"><img [src]="'http://localhost:3000/'+news.image" class="card-img-top" alt="..."></td>
+                                            
+                                              <td>
+                                                <i [routerLink]="['/update-news',news._id]" class="fa fa-edit text-success"></i>
+                                                <i (click)="deleteNews(news._id)" class="fa fa-trash text-danger"></i>
+                                              </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+                                <h5 style="text-align: start; margin-top: 10px " *ngIf="listnews.length == 0" >there are no players to display</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Prodactes -->
+                </div>
+            </div>
+            <!-- End Left side columns -->
+        </div>
+    </section>
+    </main>

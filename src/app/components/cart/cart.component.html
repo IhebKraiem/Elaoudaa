@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<section style="width: 80%;" class="section dashboard">
+  <!-- Left side columns -->
+  <div class="col-lg-12">
+      <div class="row">
+          <!-- Prodactes -->
+          <div class="col-12">
+              <div class="card top-selling overflow-auto">
+                  <div class="card-body pb-0">
+
+                      <h5 class="card-title">Panier <button class="btn btn-danger float-end"
+                        (click)="_emptyCart()">Tout Supprimer</button></h5>
+                      <table style="width: 80%;
+                      "  class="table table-borderless mt-5">
+                          <thead>
+                              <tr>
+                                  <th scope="col">Image</th>
+                                  <th scope="col">Nom</th>
+                                  <th scope="col">Quentité</th>
+                                  <th scope="col">Prix</th>
+                                  <th scope="col">Total Price</th>
+                                 
+                              </tr>
+                          </thead>
+
+                          <tbody >
+                              <tr *ngFor ="let item of carts.items">
+                                  <td scope="row"><img [src]="'http://localhost:3000/'+item.productId.image" class="card-img-top" alt="..."></td>
+                           
+                                  <td>{{ item.productId.name }}</td>
+                                  <td >  <button class="btn btn-primary btn-sm" (click)="_increamentQTY(item.productId._id,1)">+</button>
+                                    {{ item.quantity }}
+                                    <button class="btn btn-primary btn-sm" (click)="delete(item.productId._id)">-</button>
+                                  </td>
+                                  <td>{{ item.productId.price }}</td>
+                                  <td>{{ item.total }}</td>
+                                  
+                              </tr>
+                              <tr>
+                                <td colspan="6" style="text-align:right; font-size:25px;">Subtotal :{{ carts.subTotal }}</td>
+                                
+                              </tr>
+                          </tbody>
+                      </table>
+                     
+                  </div>
+              </div>
+          </div>
+          <!-- End Prodactes -->
+      </div>
+  </div>
+  <!-- End Left side columns -->
+
+</section>
+<app-footer> </app-footer>
+
+
+

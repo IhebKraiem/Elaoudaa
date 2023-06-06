@@ -1,0 +1,143 @@
+<app-navbar></app-navbar>
+<body>
+	
+	<section class="drawer">
+		<div class="col-md-12 size-img back-img-shop">
+            <div class="effect-cover">
+                <h3 class="txt-advert animated">Passer Votre Commande !</h3>
+                
+            </div>
+        </div>
+		<!-- Shop Login -->
+		<div class="container secondary-page">
+			<section id="login" class="login section">
+				
+				<div class="container">
+					<div class="top-score-title right-score col-md-12">
+						<h3>Bienvenue <span class="point-int"> !</span></h3>
+						<div class="inner">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="login-left">
+
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="login-form">
+										<h2>Passer une commande ici !</h2>
+										
+										<!-- Form -->
+										<form class="form" [formGroup]="reservationForm" >
+                                             <div class="row mb-4">
+                                                <label >Nom De produit </label><div class="clear"></div>
+                                                 <input type="text" class="" formControlName="nomcm" required>
+                                                 <div class="error-message" *ngIf="reservationForm.controls['nomcm'].invalid && (reservationForm.controls['nomcm'].dirty || reservationForm.controls['nomcm'].touched)">
+                                                    <p style="color: red;">Champ obligatoire.</p>
+                                                </div>        
+                                             </div>
+                                             <div class="row mb-4">
+                                                <label for="name">Quantité </label><div class="clear"></div>
+                                                <input type="number" class="form-control" formControlName="qcm" required>      
+                                                <div class="error-message" *ngIf="reservationForm.controls['qcm'].invalid && (reservationForm.controls['qcm'].dirty || reservationForm.controls['qcm'].touched)">
+                                                    <p style="color: red;">Champ obligatoire.</p>
+                                                </div>  
+                                             </div>
+
+                                             <div class="row mb-4">
+                                                <label for="name">Numéro De téléphone </label><div class="clear"></div>
+                                                <input  class="form-control" formControlName="numtel" required pattern="^[0-9]{8}$"> 
+                                                <div class="error-message" *ngIf="reservationForm.controls['numtel'].invalid && (reservationForm.controls['numtel'].dirty || reservationForm.controls['numtel'].touched)">
+                                                    <p style="color: red;" *ngIf="reservationForm.controls['numtel'].errors?.required">Champ obligatoire.</p>
+                                                    <p style="color: red;" *ngIf="reservationForm.controls['numtel'].errors?.pattern">Le numéro de téléphone doit comporter 8 chiffres.</p>
+                                                </div>  
+                                             </div>
+                                        
+                                           <div class="row mb-4">
+                                            <label for="name">Description </label><div class="clear"></div>
+                                            <input  class="form-control" formControlName="desc" required> 
+                                            <div class="error-message" *ngIf="reservationForm.controls['desc'].invalid && (reservationForm.controls['desc'].dirty || reservationForm.controls['desc'].touched)">
+                                                <p style="color: red;">Champ obligatoire.</p>
+                                            </div>  
+                                         </div>
+                                             <div class="col-sm-12">
+                                             <div class="row mb-4">
+                                                 <div id="register-submit">
+                                                    <input type="submit" id="bt1" (click)="addReservation()" [disabled]="reservationForm.invalid" value="Réservez"/>
+                                                    <input type="submit" id="bt2" routerLink="/home"  value="Annuler"/>
+                                                </div>
+                                            </div>
+                                             </div>
+                                             
+                                           
+                                             <div class="alert alert-danger" role="alert" *ngIf="reservationForm.invalid && (reservationForm.dirty || reservationForm.touched)">
+                                                Veuillez remplir tous les champs obligatoires correctement.
+                                              </div>
+										</form>
+										<!--/ End Form -->
+									</div>
+
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <section class="section dashboard">
+                            <div class="row">
+                
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card top-selling overflow-auto">
+                                                <div class="card-body pb-0">
+                
+                                                    <h5 class="card-title">Liste de Reservation</h5>
+                                                    <table *ngIf="listReservation.length > 0"   class="table table-borderless mt-5">
+                                                        <thead>
+                                                            <tr>
+                                                                
+                                                                <th scope="col">Date Reservation</th>
+                                                                <th scope="col">Date Debut</th>
+                                                                <th scope="col">Date Fin</th>
+                                                                
+                                                                <th scope="col">Action</th>
+                                                            </tr>
+                                                        </thead>
+                
+                                                        <tbody >
+                                                            <tr *ngFor ="let reservations of listReservation" >
+                                                                
+                                                                <td>{{reservations.nomcm}}</td>
+                                                                <td class="fw-bold">{{reservations.qcm}}</td>
+                                                                <td>{{reservations.numtel}}<a href="#" class="text-primary fw-bold"></a></td>
+                                                                
+                                                                <td>
+                                                         <i (click)="annulerReservation(reservations._id)" class="fa fa-trash text-danger"></i>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section> 
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        <!--/ End Login -->
+        
+        <!--/ End Login -->
+    </section>
+
+
+</body>
+<app-footer></app-footer>

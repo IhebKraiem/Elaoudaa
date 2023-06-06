@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<section class="drawer">
+  <div class="col-md-12 size-img back-img-match">
+      <div class="effect-cover">
+          <h3 class="txt-advert animated">Bienvenue ! </h3>
+      </div>
+  </div>
+ </section>
+  <section id="video" class="container secondary-page">
+    <div class="general general-results">
+         <div class="top-score-title col-md-12">
+          <h3><i style="color: #e7f619;" class="fa fa-quote-left"></i>El Awda Editions <i class="fa fa-quote-right" style="color: #e7f619;"></i></h3>
+              <div class="col-md-12 news-video">
+                 <video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="395" > <source src="assets/user/img/awda.mp4" type="video/mp4"> </video>
+              </div>
+              <div class="video-desc">
+                 
+                  <p class="video-arg" style="font-size: 25px;">
+                    
+                  </p>
+                  <p class="video-arg" style="font-size: 25px;"><strong>Description :</strong><br>Al Awda Edition Tunis est une maison d'édition engagée qui joue un rôle clé dans la promotion de la littérature tunisienne et maghrébine, en offrant une plate-forme pour la publication d'œuvres littéraires dans différentes langues et en organisant des événements culturels pour stimuler la créativité et encourager la diversité culturelle.
+                  </p>
+              </div>
+            
+         </div><!--Close Top Match-->
+        
+      </div>
+      </section>
+     
+      
+     <br>
+     
+     
+      
+   <!--FOOTER-->   
+
+
+    <section id="players" class="container secondary-page">
+      <div class="general general-results players">
+              
+           <div class="top-score-title right-score col-md-12" >
+                <h3 >Nous <span>travailleurs</span><span class="point-little">.</span></h3>
+                <div class="col-md-3 atp-player" *ngFor=" let entreneur of listEntraineur ">
+                  <a ><img [src]="'http://localhost:3000/'+entreneur.avatar" alt=""/>
+                  <p>{{entreneur.name}} {{entreneur.lastname}}</p></a>
+                </div>
+                
+                </div>
+                </div>
+               </section> 
+               
+
+ <!-- SECTION SUBSCRIPTIONS-->
+ <app-footer></app-footer>

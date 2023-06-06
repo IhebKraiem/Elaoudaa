@@ -1,0 +1,66 @@
+
+<app-navbar></app-navbar>
+<section class="drawer">
+    <div class="col-md-12 size-img back-img-shop2">
+        <div class="effect-cover">
+            <h3 class="txt-advert animated">CONTACTEZ-NOUS</h3>
+           
+        </div>
+    </div>
+    <section id="contact" class="secondary-page">
+        <div class="general">        
+            <div class="container">
+             <div class="content-link col-md-12">
+                    <div id="contact_form" class="top-score-title col-md-9 align-center">
+                        <h3><span>Contact</span><span class="point-little">.</span></h3>
+                                      <form class="form" [formGroup]="contactForm" (submit)="OnSubmit()">
+                                          
+                                          <div class="row mb-4">
+                                              <label for="horizontal-firstname-input"
+                                                  class="col-sm-2 col-form-label">Name
+                                              </label>
+                                              <div class="col-sm-9">
+                                                  <div class="clear"></div>
+                                          <input id="name" name="name" type="text" formControlName="name" required=""/>
+                                             
+                                              </div>
+                                          </div>
+                                          <div class="row mb-4">
+                                              <label for="horizontal-subject-input"
+                                                  class="col-sm-2 col-form-label">Subject </label>
+                                              <div class="col-sm-9"><div class="clear"></div>
+                                                  <input id="subject" name="subject" type="text" formControlName="subject"  required=""/>
+                                              </div>
+                                          </div>
+                                          <div class="row mb-4">
+                                              <label for="horizontal-firstname-input"
+                                                  class="col-sm-2 col-form-label">Message
+                                              </label>
+                                              <div class="col-sm-9">
+                                                      <textarea name="messagetext" formControlName="message" class="txt-area" id="message" cols="30" rows="4"></textarea>
+                                              </div>
+                                          </div>
+                                          
+                                          <div >
+                                              <input id="bt1" type="submit"  value="Envoyer"/>
+                                          </div>
+                                    </form>
+                                </div>
+                       <div id="info-company" class="top-score-title col-md-3 align-center">
+                          <h3>Info</h3>
+                          <div class="col-md-12">
+                            <p><i class="fa fa-phone"></i>771 386 351 </p>
+                            <p><i class="fa fa-envelope-o"></i>alawdaeditions@gmail.com </p>
+                            <p><i class="fa fa-map-marker"></i> 17 Av. de la République, Ben Arous 2013</p>
+                          </div>            
+                      </div>
+                  </div>
+                  </div>
+                  </div>
+                  </section>
+             
+    
+   
+   
+</section>
+<app-footer></app-footer>

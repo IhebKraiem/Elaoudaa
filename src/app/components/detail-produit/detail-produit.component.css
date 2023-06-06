@@ -1,0 +1,20 @@
+h3 {
+    font-size: 3.75rem;
+}
+a {
+    font-size: 2rem;
+    text-decoration:none;
+    
+}
+
+.test{
+    height:40px;
+    width:40px;
+    font-size: 15px;
+    padding: 5px;
+    margin-right: 10px;
+}
+.cart-bt a i {
+    font-size: 22px;
+    margin-right: 10px;
+}

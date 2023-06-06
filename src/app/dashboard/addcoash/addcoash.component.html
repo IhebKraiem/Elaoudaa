@@ -1,0 +1,95 @@
+
+
+<body>
+
+    <app-menu></app-menu>
+ 
+     <main id="main" class="main">
+ 
+         <div class="pagetitle">
+             <h1>Coachs</h1>
+             <nav>
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                     <li class="breadcrumb-item">Coachs</li>
+                     <li class="breadcrumb-item active">Ajouter Coach</li>
+                 </ol>
+             </nav>
+         </div><!-- End Page Title -->
+ 
+         <section class="section">
+             <div class="row">
+                 <div class="col-lg-12">
+ 
+                     <div class="card">
+                         <div class="card-body">
+                             <h5 class="card-title">Ajouter Coach</h5>
+ 
+                             <!-- General Form Elements -->
+                             <form  >
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Avatar</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" id="formFile" class="form-control" (change)="loadImage($event)" [(ngModel)]="coachForm.avatar" [ngModelOptions]="{standalone: true}" ngModel required #avatar="ngModel" >
+                                        <div class="text-danger" *ngIf="avatar.touched && !avatar.valid">
+                                            <span>Picture is <strong>important </strong> . </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                 <div class="row mb-3">
+                                     <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
+                                     <div class="col-sm-10">
+                                         <input type="text"  [(ngModel)]="coachForm.name" [ngModelOptions]="{standalone: true}" class="form-control" ngModel required #name="ngModel">
+                                         <div class="text-danger" *ngIf="name.touched && !name.valid" >
+                                             <span>Name is <strong>important </strong> . </span>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputEmail" class="col-sm-2 col-form-label">Prénom</label>
+                                     <div class="col-sm-10">
+                                         <input type="text" [(ngModel)]="coachForm.lastname" [ngModelOptions]="{standalone: true}" class="form-control" ngModel required #lastname="ngModel">
+                                         <div class="text-danger" *ngIf="lastname.touched && !lastname.valid" >
+                                             <span>lastname is <strong>important </strong> . </span>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email"  [(ngModel)]="coachForm.email" [ngModelOptions]="{standalone: true}" class="form-control" ngModel required #email="ngModel">
+                                        <div class="text-danger" *ngIf="email.touched && !email.valid" >
+                                            <span>Email is <strong>important </strong> . </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row mb-3">
+ 
+                                     <div class="col-sm-12">
+                                         <button class="btn btn-secondary btn-lg float-start"  routerLink="/coashs">Annuler</button>
+                                         <button type="submit"  (click)="addCoach()"  class="btn btn-success btn-lg float-end">Ajouter Coach</button>
+                                        
+                                     </div>
+                                 </div>
+ 
+                             </form>
+                             <!-- End General Form Elements -->
+ 
+                         </div>
+                     </div>
+ 
+                 </div>
+ 
+ 
+             </div>
+         </section>
+ 
+     </main><!-- End #main -->
+ 
+    
+ 
+ 
+ 
+ </body>
+ 
+ 

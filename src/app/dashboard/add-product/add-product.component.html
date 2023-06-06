@@ -1,0 +1,119 @@
+
+
+<body>
+
+   <app-menu></app-menu>
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Produit</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                    <li class="breadcrumb-item">Produits</li>
+                    <li class="breadcrumb-item active">Ajouter Produit</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ajouter Produit</h5>
+
+                            <!-- General Form Elements -->
+                            <form  >
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
+                                    <div class="col-sm-10">
+                                        <input type="text"  [(ngModel)]="productForm.name" [ngModelOptions]="{standalone: true}" class="form-control" ngModel required #name="ngModel">
+                                        <div class="text-danger" *ngIf="name.touched && !name.valid" >
+                                            <span>Nom is <strong>important </strong> . </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="row mb-3">
+                                    <label for="inputEmail" class="col-sm-2 col-form-label">Marque</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" [(ngModel)]="productForm.marque" [ngModelOptions]="{standalone: true}" class="form-control" ngModel required #marque="ngModel">
+                                        <div class="text-danger" *ngIf="marque.touched && !marque.valid" >
+                                            <span>Marque is <strong>important </strong> . </span>
+                                    </div>
+                                    </div>
+                                </div> -->
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Prix</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" [(ngModel)]="productForm.price" [ngModelOptions]="{standalone: true}" class="form-control" ngModel required #price="ngModel">
+                                        <div class="text-danger" *ngIf="price.touched && !price.valid" >
+                                            <span>Price is <strong>important </strong> . </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" id="formFile" class="form-control" (change)="loadImage($event)" [(ngModel)]="productForm.image" [ngModelOptions]="{standalone: true}" ngModel required #image="ngModel" >
+                                        <div class="text-danger" *ngIf="image.touched && !image.valid">
+                                            <span>Picture is <strong>important </strong> . </span>
+                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control"  [(ngModel)]="productForm.description" [ngModelOptions]="{standalone: true}"
+                                            style="height: 100px" ngModel required #description="ngModel"></textarea>
+                                            <div class="text-danger" *ngIf="description.touched && !description.valid">
+                                                <span>Description is <strong>important </strong> . </span>
+                                                </div>
+                                    </div>
+                                </div>
+                                
+                                 <div class="row mb-5">
+                                    <label class="col-sm-2 col-form-label">Catégorie</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="Default select example"
+                                         [(ngModel)]="productForm.shopcategorie" [ngModelOptions]="{standalone: true}"   >
+                                            <option value="none" selected="" disabled="">Les Catégories</option>
+                                            <option [ngValue]="shopcategorie._id" *ngFor=" let shopcategorie of listcategorie "> {{shopcategorie.name}}</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div> 
+
+
+                                <div class="row mb-3">
+
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-secondary btn-lg float-start"  routerLink="/products">Annuler</button>
+                                        <button type="submit"  (click)="addProduct()"  class="btn btn-success btn-lg float-end">Ajouter Produit</button>
+                                       
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-- End General Form Elements -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+   
+
+
+</body>
+

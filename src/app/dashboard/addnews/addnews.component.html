@@ -1,0 +1,89 @@
+<app-menu></app-menu>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Actualité</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">dashboard</a></li>
+                <li class="breadcrumb-item">Actualité</li>
+                <li class="breadcrumb-item">Liste des Actualités</li>
+                <li class="breadcrumb-item active">Ajouter Actualité</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{cardtitle }}</h5>
+
+                        <!-- General Form Elements -->
+                        <form>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Date</label>
+                                <div class="col-sm-10">
+                                    <input type="date" [(ngModel)]="newsForm.date"
+                                        [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <div class="text-danger">
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Titre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" [(ngModel)]="newsForm.title"
+                                        [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <div class="text-danger">
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="formFile" class="form-control" (change)="loadImage($event)"
+                                        [(ngModel)]="newsForm.image" [ngModelOptions]="{standalone: true}">
+                                    <div class="text-danger">
+                                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Actualité d'aujourd'hui</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control"  [(ngModel)]="newsForm.newsToday" [ngModelOptions]="{standalone: true}"
+                                    style="height: 100px" ></textarea>
+                                   
+                                </div>
+                             
+                            </div>
+
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-12">
+                        <button type="submit" (click)="addNews()" class="btn btn-success btn-lg float-end">{{cardbutton}}</button>
+
+                                </div>
+                            </div>
+
+                        </form>
+                        <!-- End General Form Elements -->
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+</main><!-- End #main -->

@@ -1,0 +1,16 @@
+h3 {
+    font-size: 3.75rem;
+}
+a {
+    font-size: 1.50rem;
+    text-decoration:none;
+    cursor: pointer;
+}
+.float-right{
+   font-size: 20px;
+   margin-top: 2rem;
+}
+.fa {
+    cursor: pointer;
+
+}

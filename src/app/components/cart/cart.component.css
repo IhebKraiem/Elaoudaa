@@ -1,0 +1,27 @@
+.fa {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 25px;
+
+}
+.btn{
+  font-size: 15px;
+
+}
+.tbody, td, tfoot, th, thead, tr {
+  border-color: inherit;
+  border-style: solid;
+
+  
+}
+a {
+  font-size: 1.50rem;
+  text-decoration:none;
+}
+table,section
+{
+margin: auto;
+}
+.col-12{
+  padding-top: 50px;
+}

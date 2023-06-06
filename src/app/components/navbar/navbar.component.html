@@ -1,0 +1,89 @@
+
+<body>
+  <!--SECTION TOP LOGIN-->
+  <section class="content-top-login">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="box-support">
+          <p class="support-info"><i class="fa fa-envelope-o"></i> alawdaeditions@gmail.com</p>
+        </div>
+        <div class="box-login" >
+          <a  href='/login' *ngIf="!isAdmin"><i class="fa fa-user" >&emsp;&emsp;Connexion</i></a>
+          <a href='/inscrit'  *ngIf="!isAdmin"><i class="fa fa-user-plus">&emsp;&emsp;S'inscrire</i></a> 
+          
+          <div id="box" >
+            <i onclick="window.location.href='/cart'" *ngIf="isAdmin" class="fa fa-shopping-cart"></i>
+            
+          <li  class="nav-item dropdown pe-3" *ngIf="isAdmin">
+
+            <p class="nav-link nav-profile d-flex align-items-center pe-0" style="color : #fff;" data-bs-toggle="dropdown">
+                <img [src]="'http://localhost:3000/'+currentUser.avatar" alt="Profile" class="rounded-circle">
+                <span class="d-none d-md-block dropdown-toggle ps-2">{{currentUser.name}} {{currentUser.lastname}}</span>
+            </p><!-- End Profile Iamge Icon -->
+
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" >
+                <li class="dropdown-header">
+                    <h3>&emsp;&emsp;{{currentUser.name}} {{currentUser.lastname}}</h3>
+                    <span>{{currentUser.email}}</span>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+              </li>
+
+                <li>
+                    <p class="dropdown-item d-flex align-items-center" onclick="window.location.href='/profile'">
+                        <i class="bi bi-person"></i>
+                        <span>Mon Profile</span>
+                    </p>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+              </li>
+                <li>
+                   
+                <p class="dropdown-item d-flex align-items-center"  (click)="logout()" *ngIf="isAdmin"  >
+                  <i class="fa fa-sign-out"  aria-hidden="true">&emsp;&emsp;Déconnecter</i>
+                </p>  
+                   
+                </li>
+
+            </ul><!-- End Profile Dropdown Items -->
+            
+        </li><!-- End Profile Nav -->
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--SECTION MENU -->
+  <section class="container box-logo">
+    <header>
+      <div class="content-logo col-md-12">
+        <div class="logo">
+          <img src="assets/user/img/logo2.png" alt="" />
+        </div>
+        
+
+        <div class="bt-menu"><a  class="menu"><span>&equiv;</span> Menu</a></div>
+
+        <div class="box-menu">
+
+          <nav id="cbp-hrmenu" class="cbp-hrmenu">
+            <ul id="menu">
+              <li><a class="lnk-menu "routerLink="/home" routerLinkActive="active">Acceuil</a></li>
+              <li><a class="lnk-menu " routerLink="/coach" routerLinkActive="active" >Qui somme-Nous ?</a></li>
+              <li><a class="lnk-menu " routerLink="/shop" routerLinkActive="active">Boutique</a></li>
+              <li><a class="lnk-menu" routerLink="/reservation" routerLinkActive="active" >Commande</a></li>
+              <li><a class="lnk-menu"  routerLink="/contact" routerLinkActive="active" >Contact</a></li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </header>
+  </section>
+
+</body>
+
+
+

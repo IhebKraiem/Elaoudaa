@@ -1,0 +1,16 @@
+.fa {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 25px;
+
+}
+.btn{
+    font-size: 20px;
+
+}
+.tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+ 
+    
+}

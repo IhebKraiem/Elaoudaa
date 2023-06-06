@@ -1,0 +1,108 @@
+
+
+<body>
+
+    <app-menu></app-menu>
+ 
+     <main id="main" class="main">
+ 
+         <div class="pagetitle">
+             <h1>Produits</h1>
+             <nav>
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                     <li class="breadcrumb-item">list des produits</li>
+                     <li class="breadcrumb-item active">Modifier produit</li>
+                 </ol>
+             </nav>
+         </div><!-- End Page Title -->
+ 
+         <section class="section">
+             <div class="row">
+                 <div class="col-lg-12">
+ 
+                     <div class="card">
+                         <div class="card-body">
+                             <h5 class="card-title">Modifier produit</h5>
+ 
+                             <!-- General Form Elements -->
+                             <form  >
+                                 <div class="row mb-3">
+                                     <label for="inputText" class="col-sm-2 col-form-label">Name</label>
+                                     <div class="col-sm-10">
+                                         <input type="text" [(ngModel)]="productForm.name" [ngModelOptions]="{standalone: true}" class="form-control">
+                                         
+                                     </div>
+                                 </div>
+                                 <!-- <div class="row mb-3">
+                                     <label for="inputEmail" class="col-sm-2 col-form-label">Marque</label>
+                                     <div class="col-sm-10">
+                                         <input type="text" [(ngModel)]="productForm.marque" [ngModelOptions]="{standalone: true}" class="form-control">
+                                         
+                                     </div>
+                                 </div> -->
+ 
+                                 <div class="row mb-3">
+                                     <label for="inputNumber" class="col-sm-2 col-form-label">Prix</label>
+                                     <div class="col-sm-10">
+                                         <input type="number" [(ngModel)]="productForm.price" [ngModelOptions]="{standalone: true}" class="form-control">
+                                         
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+                                   <div class="col-sm-10">
+                                         <input type="file" id="formFile" class="form-control" (change)="loadImage($event)" [(ngModel)]="productForm.image" [ngModelOptions]="{standalone: true}" >
+                                     </div>
+                                 </div>
+ 
+                                 <div class="row mb-3">
+                                     <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                                     <div class="col-sm-10">
+                                         <textarea class="form-control"  [(ngModel)]="productForm.description" [ngModelOptions]="{standalone: true}"
+                                             style="height: 100px"></textarea>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="row mb-5">
+                                    <label class="col-sm-2 col-form-label">Catégorie</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="Default select example"
+                                         [(ngModel)]="productForm.shopcategorie" [ngModelOptions]="{standalone: true}"   >
+                                            <option value="none" selected="" disabled="">Les Catégories</option>
+                                            <option [ngValue]="shopcategorie._id" *ngFor=" let shopcategorie of listcategorie "> {{shopcategorie.name}}</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div> 
+ 
+ 
+                                 <div class="row mb-3">
+ 
+                                     <div class="col-sm-12">
+                                         <button class="btn btn-secondary btn-lg float-start"  routerLink="/products">Annuler</button>
+                                         <button type="submit"  (click)="updateProduit()"  class="btn btn-success btn-lg float-end">Modifier produit</button>
+                                        
+                                     </div>
+                                 </div>
+ 
+                             </form>
+                             <!-- End General Form Elements -->
+ 
+                         </div>
+                     </div>
+ 
+                 </div>
+ 
+ 
+             </div>
+         </section>
+ 
+     </main><!-- End #main -->
+ 
+   
+ 
+ 
+ </body>
+ 
+ 

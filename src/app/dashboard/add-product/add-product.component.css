@@ -1,0 +1,9 @@
+.col-form-label {
+    font-size: 15px;
+}
+.btn {
+    font-size: 15px;
+}
+input.ng-touched.ng-invalid{
+    border:1px solid red ;
+}
